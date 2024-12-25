@@ -5,5 +5,5 @@ Viết script chạy auto seeding cho app Myclip, kết nối với thiết bị
 - Thiết bị thật: kết nối qua dây cáp USB, cấu hình cài đặt theo hướng dẫn trong folder **Pre_Run_Tool** file **BuildTest_Window.zip**.
 - Thiết bị ảo: cài đặt Android Studio và tải thêm các emulator, khi đó thiết bị sẽ có các emulator ảo có thể sử dụng để dùng với appium.
 
-<image src="https://github.com/user-attachments/assets/f0e4185b-3a3f-4fa6-abe1-a9f371d51ffd" with="10"/>
-<image src="https://github.com/user-attachments/assets/1ad1ddea-5093-4435-bfb0-36821dc67574" with="50"/>
+![image](https://github.com/user-attachments/assets/469292c5-6f89-4997-a376-0e7bc61c6112)
+![image](https://github.com/user-attachments/assets/ad234c01-bb6f-4981-9eef-c4b5eed0d0b4)

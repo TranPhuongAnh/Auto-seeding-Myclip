@@ -2,6 +2,8 @@ package com.seeding.myclip.config;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
+import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -10,8 +12,6 @@ import java.util.concurrent.TimeUnit;
 public class AppiumDriverManager {
 //    private static final String CHROME_DRIVER = "webdriver.chrome.driver"; //Cấu hình biến trỏ đến file webDriver cứng, selenium v4 trở đi k cần webDriver cứng
     private static final AppiumDriverManager appiumDriverManager = new AppiumDriverManager();
-    public static CommonMethod commonMethod;
-    public static ConfigFileReader configFileReader;
     private static AndroidDriver<MobileElement> driver;
 
     //Hàm sử dụng được tất cả hàm của class WebDriverManager
@@ -54,16 +54,17 @@ public class AppiumDriverManager {
     private DesiredCapabilities Emulator(String udid) {
         // Set DesiredCapabilities to send to Appium server
         DesiredCapabilities desi_cap = new DesiredCapabilities();
-        desi_cap.setCapability("appium:platformName", "Android");
+        desi_cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 //        desi_cap.setCapability("appium:platformVersion", "15.0");
-        desi_cap.setCapability("appium:automationName", "UiAutomator2");
+        desi_cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         desi_cap.setCapability("appium:udid", udid);
 //        desi_cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixcel 9 API 35");
-        desi_cap.setCapability("appium:appPackage", "com.viettel.myclip");
-        desi_cap.setCapability("appium:appActivity", "com.viettel.myclip.MainActivity");
-        desi_cap.setCapability("appium:noReset", false);
+        desi_cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.viettel.myclip");
+        desi_cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.viettel.myclip.MainActivity");
+        desi_cap.setCapability(MobileCapabilityType.NO_RESET, false);
         desi_cap.setCapability("appium:ignoreHiddenApiPolicyError", false);
-        desi_cap.setCapability("appium:appWaitActivity", "*");
+        desi_cap.setCapability(AndroidMobileCapabilityType.APP_WAIT_ACTIVITY, "*");
+//        desi_cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 120);
 
         return desi_cap;
     }
