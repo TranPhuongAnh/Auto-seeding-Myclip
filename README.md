@@ -1,3 +1,3 @@
 # Auto-seeding-Myclip
-Dự án test automation với appium và java
+Dự án test automation với appium và java.\n
 Viết script chạy auto seeding cho app Myclip, kết nối với thiết bị android (có thể là thật cũng có thể là ảo)
