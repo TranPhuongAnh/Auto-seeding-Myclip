@@ -1,2 +1,2 @@
 # automation-testing
-các dự án automation testing
+Dự án test automation với appium
