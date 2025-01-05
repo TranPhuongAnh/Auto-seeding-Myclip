@@ -12,6 +12,7 @@ import org.apache.poi.xssf.usermodel.*;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +29,7 @@ public class ExcelHelpers {
     private Color mycolor;
     private String excelFilePath;
     private final Map<String, Integer> columns = new HashMap<>();
-    private final String[] fileHeader = {"Phone number", "Url", "Previous views", "After views", "Error message"};
+    private final String[] fileHeader = {"Phone number", "ID Video", "Previous views", "After views", "Error message"};
 
     public void setExcelFile(String ExcelPath, String SheetName) throws Exception {
         try {
@@ -201,7 +202,7 @@ public class ExcelHelpers {
         for (DataExport obj : data) {
             Row r = sheet.createRow(++rowCount);
             r.createCell(0).setCellValue(obj.getPhone());
-            r.createCell(1).setCellValue(obj.getUrl());
+            r.createCell(1).setCellValue(obj.getId_video());
             r.createCell(2).setCellValue(obj.getPre_view());
             r.createCell(3).setCellValue(obj.getAfter_view());
             r.createCell(4).setCellValue(obj.getMessage_error());
@@ -213,6 +214,25 @@ public class ExcelHelpers {
         sheet.autoSizeColumn(2);
         sheet.autoSizeColumn(3);
         sheet.autoSizeColumn(4);
+    }
+
+    public List<String> readIDExcel(String path, String sheetName) throws Exception {
+        List<String> ids = new ArrayList<>();
+        int sum_row = getSumRow(path, sheetName);
+        for (int i = 1 ; i < sum_row ; i++){
+            Row r = sh.getRow(i);
+            if (r != null){
+                Cell c = r.getCell(0);
+                if (c != null){
+                    String id = c.getStringCellValue();
+                    if (id != null && !id.isEmpty()){
+                        ids.add(id);
+                    }
+                }
+            }
+        }
+
+        return ids;
     }
 }
 

@@ -13,6 +13,7 @@ public class AppiumDriverManager {
 //    private static final String CHROME_DRIVER = "webdriver.chrome.driver"; //Cấu hình biến trỏ đến file webDriver cứng, selenium v4 trở đi k cần webDriver cứng
     private static final AppiumDriverManager appiumDriverManager = new AppiumDriverManager();
     private static AndroidDriver<MobileElement> driver;
+    private static String driverSeri;
 
     //Hàm sử dụng được tất cả hàm của class WebDriverManager
     public static AppiumDriverManager getInstance() {
@@ -26,20 +27,22 @@ public class AppiumDriverManager {
     }
 
     //Hàm đặt biến cho giá trị cấu hình từ file config
-    public AppiumDriverManager() {}
+    public AppiumDriverManager() {
+        driverSeri = FileReaderManager.getInstance().getConfigReader().getDriverSeri();
+    }
 
     // Hàm getDriver() khởi tạo diver
-    protected AndroidDriver<MobileElement> getDriver(String udid){
+    protected AndroidDriver<MobileElement> getDriver(){
         if (driver == null){
-            driver = createDriver(udid);
+            driver = createDriver();
         }
         return driver;
     }
 
     // Hàm createDriver() tạo môi trường appium
-    private AndroidDriver<MobileElement> createDriver(String udid){
+    private AndroidDriver<MobileElement> createDriver(){
         try {
-            DesiredCapabilities caps = Emulator(udid);
+            DesiredCapabilities caps = Emulator();
             // Setup the Appium server URL to connect to
             URL appiumServer = new URL("http://127.0.0.1:4723/wd/hub/");
 
@@ -51,13 +54,13 @@ public class AppiumDriverManager {
     }
 
     // Hàm lấy cấu hình emulator
-    private DesiredCapabilities Emulator(String udid) {
+    private DesiredCapabilities Emulator() {
         // Set DesiredCapabilities to send to Appium server
         DesiredCapabilities desi_cap = new DesiredCapabilities();
         desi_cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 //        desi_cap.setCapability("appium:platformVersion", "15.0");
         desi_cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-        desi_cap.setCapability("appium:udid", udid);
+        desi_cap.setCapability("appium:udid", driverSeri);
 //        desi_cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixcel 9 API 35");
         desi_cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.viettel.myclip");
         desi_cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.viettel.myclip.MainActivity");

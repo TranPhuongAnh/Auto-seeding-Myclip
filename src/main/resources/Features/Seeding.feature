@@ -7,5 +7,5 @@ Feature: Seeding tool for Myclip app
 
   @Seeding
   Scenario: Open app on device
-    Given Open the app login screen
+    Given Run tool seeding
     And Close app

@@ -2,7 +2,7 @@ package com.seeding.myclip.stepDefinition;
 
 public class DataExport {
     private String phone;
-    private String url;
+    private int id_video;
     private int pre_view;
     private int after_view;
     private String message_error;
@@ -11,10 +11,10 @@ public class DataExport {
         super();
     }
 
-    public DataExport(String phone, String url, int pre_view, int after_view, String message_error){
+    public DataExport(String phone, int id_video, int pre_view, int after_view, String message_error){
         super();
         this.phone = phone;
-        this.url = url;
+        this.id_video = id_video;
         this.pre_view = pre_view;
         this.after_view = after_view;
         this.message_error = message_error;
@@ -24,8 +24,8 @@ public class DataExport {
         return phone;
     }
 
-    public String getUrl(){
-        return url;
+    public int getId_video(){
+        return id_video;
     }
 
     public int getPre_view(){
