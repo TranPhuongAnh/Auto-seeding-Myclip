@@ -4,25 +4,31 @@ import com.seeding.myclip.config.AppiumDriverManager;
 import com.seeding.myclip.config.CommonMethod;
 import com.seeding.myclip.config.ConfigFileReader;
 import com.seeding.myclip.config.ExcelHelpers;
-import io.appium.java_client.MobileElement;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public class Video extends AppiumDriverManager {
-    AndroidDriver<MobileElement> driver = null;
+    AndroidDriver driver = null;
     ConfigFileReader config = new ConfigFileReader();
     private String udid = config.getDriverSeri();
     CommonMethod common = new CommonMethod(getDriver());
     ExcelHelpers excel = new ExcelHelpers();
+    WebDriverWait wait;
 
     // Onboarding
     private By StartButton = By.xpath("//android.widget.TextView[@text='Bắt đầu']");
     private By CancelPopup = By.xpath("//android.widget.TextView[@text='Bỏ qua']");
-    private By AccMenu = By.xpath("//android.widget.FrameLayout[@resource-id='android:id/content']/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[13]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[5]");
+    private By AccMenu = By.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[16]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[5]");
     private By LoginButton = By.xpath("//android.widget.TextView[@text='Đăng nhập']");
 
     // Login Screen
@@ -33,26 +39,34 @@ public class Video extends AppiumDriverManager {
     public void open_the_app_login_screen(){
         System.out.println(udid);
         String owb = null;
-        try {
-            Video.getInstance().ImplicitlyWait_Config();
+//        try {
             driver = getDriver();
+            wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+            wait.until(ExpectedConditions.visibilityOfElementLocated(StartButton));
             common.clickElement(StartButton);
+
+            wait.until(ExpectedConditions.visibilityOfElementLocated(CancelPopup));
             common.clickElement(CancelPopup);
+
+//            wait.until(ExpectedConditions.visibilityOfElementLocated(AccMenu));
             common.clickElement(AccMenu);
 
+//            wait.until(ExpectedConditions.visibilityOfElementLocated(LoginButton));
             common.clickElement(LoginButton);
-            String curActivity = driver.currentActivity();
+
+            String curActivity = common.getCurentActivity();
             System.out.println(curActivity);
             if (common.getCurentActivity().equals("http://meclip.vn/")){
                 logout_app();
             }
             owb = "App login screen opened successfully";
             System.out.println(owb);
-        } catch (WebDriverException e){
-            owb = e.getMessage();
-            System.out.println(owb);
-            e.printStackTrace();
-        }
+//        } catch (WebDriverException e){
+//            owb = e.getMessage();
+//            System.out.println(owb);
+//            e.printStackTrace();
+//        }
     }
 
     public String login_app(String sheetName, int rowNum) throws Exception {
@@ -61,6 +75,7 @@ public class Video extends AppiumDriverManager {
         String phone = excel.getCell("phone", rowNum);
         String pass = excel.getCell("password", rowNum);
         System.out.println("Phone: " + phone + "\nPass: " + pass);
+
         fill_data(InputPhone, phone);
         fill_data(InputPass, pass);
 

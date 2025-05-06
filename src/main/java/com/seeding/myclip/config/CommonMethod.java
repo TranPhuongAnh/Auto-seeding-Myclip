@@ -1,7 +1,10 @@
 package com.seeding.myclip.config;
 
-import io.appium.java_client.MobileElement;
+//import io.appium.java_client.MobileElement;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
+import io.cucumber.java.en_lol.AN;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -12,16 +15,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 
 public class CommonMethod extends AppiumDriverManager {
-    static AndroidDriver<MobileElement> driver;
+    static AndroidDriver driver;
     WebDriverWait wait;
     JavascriptExecutor js;
 
-    public CommonMethod(AndroidDriver<MobileElement> driver) {
+    public CommonMethod(AndroidDriver driver) {
         CommonMethod.driver = driver;
         long time = FileReaderManager.getInstance().getConfigReader().getImplicitlyWait();
-        wait = new WebDriverWait(driver, time);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(time));
         js = (JavascriptExecutor) driver;
     }
 
@@ -144,8 +148,17 @@ public class CommonMethod extends AppiumDriverManager {
      */
     // Thực hiện lấy mã màn hình hiện tại
     public String getCurentActivity() {
-        String currentActivity = driver.currentActivity();
-        return currentActivity;
+        String activity = null;
+//        if(driver instanceof AndroidDriver){
+            activity = ((AndroidDriver) driver).currentActivity();
+            System.out.println("Android current activity: " + activity);
+//        }
+//        else if (driver instanceof IOSDriver){
+//            activity = ((IOSDriver) driver).getPageSource();
+//            System.out.println("IOS current page source: " + activity);
+//
+//        }
+        return activity;
     }
 
 
@@ -232,7 +245,7 @@ public class CommonMethod extends AppiumDriverManager {
     //Messsage (flash/toast): Lấy nội dung message
     public String messageText(By e){
         long time = FileReaderManager.getInstance().getConfigReader().getImplicitlyWait();
-        WebDriverWait wait = new WebDriverWait(driver, time);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
         WebElement message = wait.until(ExpectedConditions.visibilityOfElementLocated(e));
         String textMess = message.getText();
 
@@ -306,7 +319,7 @@ public class CommonMethod extends AppiumDriverManager {
                 };
         try {
             Thread.sleep(1000);
-            WebDriverWait wait = new WebDriverWait(driver, 3);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
             wait.until(expectation);
         } catch (Throwable error) {
             Assert.fail("Timeout waiting for Page Load Request to complete.");

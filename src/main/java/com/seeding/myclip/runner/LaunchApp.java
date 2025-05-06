@@ -1,6 +1,6 @@
 package com.seeding.myclip.runner;
 
-import cucumber.api.cli.Main;
+import io.cucumber.core.cli.Main;
 
 public class LaunchApp {
     public static void main(String[] args) {

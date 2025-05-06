@@ -224,9 +224,34 @@ public class ExcelHelpers {
             if (r != null){
                 Cell c = r.getCell(0);
                 if (c != null){
-                    String id = c.getStringCellValue();
-                    if (id != null && !id.isEmpty()){
-                        ids.add(id);
+                    String value = null;
+                    switch (c.getCellType()){
+                        case STRING:
+                            value = c.getStringCellValue();
+                            break;
+
+                        case NUMERIC:
+                            value = String.valueOf((long) c.getNumericCellValue());
+                            break;
+
+                        case FORMULA:
+                            value = c.getCellFormula();
+                            break;
+
+                        case BOOLEAN:
+                            value = String.valueOf(c.getBooleanCellValue());
+                            break;
+
+                        case BLANK:
+                            value = null;
+                            break;
+
+                        default:
+                            value = null;
+                    }
+
+                    if (value != null && !value.isEmpty()){
+                        ids.add(value);
                     }
                 }
             }
