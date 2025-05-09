@@ -3,7 +3,7 @@ Dự án test automation với appium và java.
 
 Viết script chạy auto seeding cho app Myclip, kết nối với thiết bị android:  
 
-1. Kiểm tra dự án
+**1. Kiểm tra dự án**
 
 Trước khi run test
 - Cài đặt appium và các driver & plugin appium:
@@ -17,7 +17,7 @@ Trước khi run test
 
 - Chạy cmd lệnh `appium --use-plugins=execute-driver --base-path /wd/hub` để kết nối với appium
 
-2. Kiểm tra devices
+**2. Kiểm tra devices**
 
 Chạy lệnh `adb devices` để kiểm tra device đang kết nối trên máy tính.
 - Nếu kết quả hiển thị <mã thết bị - device>/`emulator-5554   device`, có thể bắt đầu test
@@ -46,7 +46,7 @@ Chạy lệnh `adb devices` để kiểm tra device đang kết nối trên máy
     - Tạo emulator mới
     - Khởi động lại emulator → chạy: `adb devices`
 
-3. Cấu hình thiết bị
+**3. Cấu hình thiết bị**
 - Thiết bị thật: kết nối qua dây cáp USB, cấu hình cài đặt theo hướng dẫn trong folder **Pre_Run_Tool** file **BuildTest_Window.zip**.
 - Thiết bị ảo: cài đặt Android Studio và tải thêm các emulator, khi đó thiết bị sẽ có các emulator ảo có thể sử dụng để dùng với appium.
 
