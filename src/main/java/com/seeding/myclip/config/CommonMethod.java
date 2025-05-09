@@ -13,6 +13,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
@@ -346,6 +349,637 @@ public class CommonMethod extends AppiumDriverManager {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    /**
+     * ---- NHÓM THAO TÁC BÀN PHÍM ----
+     */
+    // Hàm chung thực hiện nhấn phím Enter
+    public void keyPressEnter(){
+        try {
+            Robot robot = new Robot();
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+        }
+        catch (AWTException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void keyPressBacKSpace() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_BACK_SPACE);
+        robot.keyRelease(KeyEvent.VK_BACK_SPACE);
+    }
+
+    public void keyPressTab() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_TAB);
+        robot.keyRelease(KeyEvent.VK_TAB);
+    }
+
+    public void keyPressCancel() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_CANCEL);
+        robot.keyRelease(KeyEvent.VK_CANCEL);
+    }
+
+    public void keyPressClear() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_CLEAR);
+        robot.keyRelease(KeyEvent.VK_CLEAR);
+    }
+
+    public void keyPressShift() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_SHIFT);
+        robot.keyRelease(KeyEvent.VK_SHIFT);
+    }
+
+    public void keyPressControl() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+    }
+
+    public void keyPressAlt() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_ALT);
+        robot.keyRelease(KeyEvent.VK_ALT);
+    }
+
+    public void keyPressPause() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_PAUSE);
+        robot.keyRelease(KeyEvent.VK_PAUSE);
+    }
+
+    public void keyPressCapsLock() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_CAPS_LOCK);
+        robot.keyRelease(KeyEvent.VK_CAPS_LOCK);
+    }
+
+    public void keyPressEscape() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_ESCAPE);
+        robot.keyRelease(KeyEvent.VK_ESCAPE);
+    }
+
+    public void keyPressSpace() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_SPACE);
+        robot.keyRelease(KeyEvent.VK_SPACE);
+    }
+
+    public void keyPressPageUp() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_PAGE_UP);
+        robot.keyRelease(KeyEvent.VK_PAGE_UP);
+    }
+
+    public void keyPressPageDown() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+        robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
+    }
+
+    public void keyPressEnd() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_END);
+        robot.keyRelease(KeyEvent.VK_END);
+    }
+
+    public void keyPressHome() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_HOME);
+        robot.keyRelease(KeyEvent.VK_HOME);
+    }
+
+    public void keyPressLeft() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_LEFT);
+        robot.keyRelease(KeyEvent.VK_LEFT);
+    }
+
+    public void keyPressUp() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_UP);
+        robot.keyRelease(KeyEvent.VK_UP);
+    }
+
+    public void keyPressRight() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_RIGHT);
+        robot.keyRelease(KeyEvent.VK_RIGHT);
+    }
+
+    public void keyPressDown() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_DOWN);
+        robot.keyRelease(KeyEvent.VK_DOWN);
+    }
+
+    public void keyPressComma() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_COMMA);
+        robot.keyRelease(KeyEvent.VK_COMMA);
+    }
+
+    public void keyPressMinus() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_MINUS);
+        robot.keyRelease(KeyEvent.VK_MINUS);
+    }
+
+    public void keyPressPeriod() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_PERIOD);
+        robot.keyRelease(KeyEvent.VK_PERIOD);
+    }
+
+    public void keyPressSlash() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_SLASH);
+        robot.keyRelease(KeyEvent.VK_SLASH);
+    }
+
+    public void keyPress0() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_0);
+        robot.keyRelease(KeyEvent.VK_0);
+    }
+
+    public void keyPress1() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_1);
+        robot.keyRelease(KeyEvent.VK_1);
+    }
+
+    public void keyPress2() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_2);
+        robot.keyRelease(KeyEvent.VK_2);
+    }
+
+    public void keyPress3() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_3);
+        robot.keyRelease(KeyEvent.VK_3);
+    }
+
+    public void keyPress4() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_4);
+        robot.keyRelease(KeyEvent.VK_4);
+    }
+
+    public void keyPress5() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_5);
+        robot.keyRelease(KeyEvent.VK_5);
+    }
+
+    public void keyPress6() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_6);
+        robot.keyRelease(KeyEvent.VK_6);
+    }
+
+    public void keyPress7() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_7);
+        robot.keyRelease(KeyEvent.VK_7);
+    }
+
+    public void keyPress8() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_8);
+        robot.keyRelease(KeyEvent.VK_8);
+    }
+
+    public void keyPress9() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_9);
+        robot.keyRelease(KeyEvent.VK_9);
+    }
+
+    // Thao tác nhấn phím ;
+    public void keyPressSemicolon() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_SEMICOLON);
+        robot.keyRelease(KeyEvent.VK_SEMICOLON);
+    }
+
+    // Thao tác nhấn phím =
+    public void keyPressEqualsA() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_A);
+        robot.keyRelease(KeyEvent.VK_A);
+    }
+
+    public void keyPressB() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_B);
+        robot.keyRelease(KeyEvent.VK_B);
+    }
+
+    public void keyPressC() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_C);
+        robot.keyRelease(KeyEvent.VK_C);
+    }
+
+    public void keyPressD() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_D);
+        robot.keyRelease(KeyEvent.VK_D);
+    }
+
+    public void keyPressE() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_E);
+        robot.keyRelease(KeyEvent.VK_E);
+    }
+
+    public void keyPressF() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_F);
+        robot.keyRelease(KeyEvent.VK_F);
+    }
+
+    public void keyPressG() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_G);
+        robot.keyRelease(KeyEvent.VK_G);
+    }
+
+    public void keyPressH() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_H);
+        robot.keyRelease(KeyEvent.VK_H);
+    }
+
+    public void keyPressI() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_I);
+        robot.keyRelease(KeyEvent.VK_I);
+    }
+
+    public void keyPressJ() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_J);
+        robot.keyRelease(KeyEvent.VK_J);
+    }
+
+    public void keyPressK() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_K);
+        robot.keyRelease(KeyEvent.VK_K);
+    }
+
+    public void keyPressL() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_L);
+        robot.keyRelease(KeyEvent.VK_L);
+    }
+
+    public void keyPressM() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_M);
+        robot.keyRelease(KeyEvent.VK_M);
+    }
+
+    public void keyPressN() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_N);
+        robot.keyRelease(KeyEvent.VK_N);
+    }
+
+    public void keyPressP() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_P);
+        robot.keyRelease(KeyEvent.VK_P);
+    }
+
+    public void keyPressQ() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_Q);
+        robot.keyRelease(KeyEvent.VK_Q);
+    }
+
+    public void keyPressR() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_R);
+        robot.keyRelease(KeyEvent.VK_R);
+    }
+
+    public void keyPressS() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_S);
+        robot.keyRelease(KeyEvent.VK_S);
+    }
+
+    public void keyPressT() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_T);
+        robot.keyRelease(KeyEvent.VK_T);
+    }
+
+    public void keyPressU() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_U);
+        robot.keyRelease(KeyEvent.VK_U);
+    }
+
+    public void keyPressV() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+    }
+
+    public void keyPressW() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_W);
+        robot.keyRelease(KeyEvent.VK_W);
+    }
+
+    public void keyPressX() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_X);
+        robot.keyRelease(KeyEvent.VK_X);
+    }
+
+    public void keyPressY() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_Y);
+        robot.keyRelease(KeyEvent.VK_Y);
+    }
+
+    public void keyPressZ() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_Z);
+        robot.keyRelease(KeyEvent.VK_Z);
+    }
+
+    // Thao tác nhấn phím [
+    public void keyPressOpenBracKet() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_OPEN_BRACKET);
+        robot.keyRelease(KeyEvent.VK_OPEN_BRACKET);
+    }
+
+    // Thao tác nhấn phím \
+    public void keyPressBackSlash() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_BACK_SLASH);
+        robot.keyRelease(KeyEvent.VK_BACK_SLASH);
+    }
+
+    // Thao tác nhấn phím ]
+    public void keyPressCloseBracket() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_CLOSE_BRACKET);
+        robot.keyRelease(KeyEvent.VK_CLOSE_BRACKET);
+    }
+
+    // Thao tác nhấn phím phụ phím 0
+    public void keyPressNumPad0() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_NUMPAD0);
+        robot.keyRelease(KeyEvent.VK_NUMPAD0);
+    }
+
+    // Thao tác nhấn phím phụ phím 1
+    public void keyPressNumPad1() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_NUMPAD1);
+        robot.keyRelease(KeyEvent.VK_NUMPAD1);
+    }
+
+    // Thao tác nhấn phím phụ phím 2
+    public void keyPressNumPad2() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_NUMPAD2);
+        robot.keyRelease(KeyEvent.VK_NUMPAD2);
+    }
+
+    // Thao tác nhấn phím phụ phím 3
+    public void keyPressNumPad3() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_NUMPAD3);
+        robot.keyRelease(KeyEvent.VK_NUMPAD3);
+    }
+
+    // Thao tác nhấn phím phụ phím 4
+    public void keyPressNumPad4() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_NUMPAD4);
+        robot.keyRelease(KeyEvent.VK_NUMPAD4);
+    }
+
+    // Thao tác nhấn phím phụ phím 5
+    public void keyPressNumPad5() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_NUMPAD5);
+        robot.keyRelease(KeyEvent.VK_NUMPAD5);
+    }
+
+    // Thao tác nhấn phím phụ phím 6
+    public void keyPressNumPad6() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_NUMPAD6);
+        robot.keyRelease(KeyEvent.VK_NUMPAD6);
+    }
+
+    // Thao tác nhấn phím phụ phím 7
+    public void keyPressNumPad7() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_NUMPAD7);
+        robot.keyRelease(KeyEvent.VK_NUMPAD7);
+    }
+
+    // Thao tác nhấn phím phụ phím 8
+    public void keyPressNumPad8() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_NUMPAD8);
+        robot.keyRelease(KeyEvent.VK_NUMPAD8);
+    }
+
+    // Thao tác nhấn phím phụ phím 9
+    public void keyPressNumPad9() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_NUMPAD9);
+        robot.keyRelease(KeyEvent.VK_NUMPAD9);
+    }
+
+    // Thao tác nhấn phím phụ phím Multiply
+    public void keyPressMultiply() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_MULTIPLY);
+        robot.keyRelease(KeyEvent.VK_MULTIPLY);
+    }
+
+    // Thao tác nhấn phím phụ phím Cộng
+    public void keyPressAdd() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_ADD);
+        robot.keyRelease(KeyEvent.VK_ADD);
+    }
+
+    // Thao tác nhấn phím Insert
+    public void keyPressInsert() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_INSERT);
+        robot.keyRelease(KeyEvent.VK_INSERT);
+    } // Thao tác nhấn phím phụ phím 0
+
+
+    // Thao tác nhấn phím ký tự &
+    public void keyPressAmpersand() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_AMPERSAND);
+        robot.keyRelease(KeyEvent.VK_AMPERSAND);
+    }
+
+    // Thao tác nhấn phím ký tự *
+    public void keyPressAsterisk() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_ASTERISK);
+        robot.keyRelease(KeyEvent.VK_ASTERISK);
+    }
+
+    // Thao tác nhấn phím ký tự "
+    public void keyPressQuotedbl() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_QUOTEDBL);
+        robot.keyRelease(KeyEvent.VK_QUOTEDBL);
+    }
+
+    // Thao tác nhấn phím ký tự <
+    public void keyPressLess() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_LESS);
+        robot.keyRelease(KeyEvent.VK_LESS);
+    }
+
+
+    // Thao tác nhấn phím ký tự >
+    public void keyPressGreater() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_GREATER);
+        robot.keyRelease(KeyEvent.VK_GREATER);
+    }
+
+
+    // Thao tác nhấn phím ký tự {
+    public void keyPressBraceleft() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_BRACELEFT);
+        robot.keyRelease(KeyEvent.VK_BRACELEFT);
+    }
+
+
+    // Thao tác nhấn phím ký tự }
+    public void keyPressBraceright() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_BRACERIGHT);
+        robot.keyRelease(KeyEvent.VK_BRACERIGHT);
+    }
+
+
+    // Thao tác nhấn phím ký tự @
+    public void keyPressAt() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_AT);
+        robot.keyRelease(KeyEvent.VK_AT);
+    }
+
+    // Thao tác nhấn phím ký tự :
+    public void keyPressColon() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_COLON);
+        robot.keyRelease(KeyEvent.VK_COLON);
+    }
+
+    // Thao tác nhấn phím ký tự ^
+    public void keyPressCircumflex() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_CIRCUMFLEX);
+        robot.keyRelease(KeyEvent.VK_CIRCUMFLEX);
+    }
+
+    // Thao tác nhấn phím ký tự $
+    public void keyPressDollar() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_DOLLAR);
+        robot.keyRelease(KeyEvent.VK_DOLLAR);
+    }
+
+    // Thao tác nhấn phím ký tự (
+    public void keyPressLeftParenthesis() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_LEFT_PARENTHESIS);
+        robot.keyRelease(KeyEvent.VK_LEFT_PARENTHESIS);
+    }
+
+
+    // Thao tác nhấn phím ký tự )
+    public void keyPressRightParenthesis() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_RIGHT_PARENTHESIS);
+        robot.keyRelease(KeyEvent.VK_RIGHT_PARENTHESIS);
+    }
+
+    // Thao tác nhấn phím ký tự #
+    public void keyPressSign() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_NUMBER_SIGN);
+        robot.keyRelease(KeyEvent.VK_NUMBER_SIGN);
+    }
+
+    // Thao tác nhấn phím ký tự +
+    public void keyPressPlus() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_PLUS);
+        robot.keyRelease(KeyEvent.VK_PLUS);
+    }
+
+    // Thao tác nhấn phím ký tự _
+    public void keyPressUnderScore() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_UNDERSCORE);
+        robot.keyRelease(KeyEvent.VK_UNDERSCORE);
+    }
+
+    // Thao tác nhấn phím ký tự !
+    public void keyPressExclamationMark() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_EXCLAMATION_MARK);
+        robot.keyRelease(KeyEvent.VK_EXCLAMATION_MARK);
+    }
+
+    // Thao tác nhấn Cut !
+    public void keyPressCut() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_CUT);
+        robot.keyRelease(KeyEvent.VK_CUT);
+    }
+
+    // Thao tác nhấn Copy
+    public void keyPressCopy() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_COPY);
+        robot.keyRelease(KeyEvent.VK_COPY);
+    }
+
+    // Thao tác nhấn Paste
+    public void keyPressPaste() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_PASTE);
+        robot.keyRelease(KeyEvent.VK_PASTE);
     }
 
 }

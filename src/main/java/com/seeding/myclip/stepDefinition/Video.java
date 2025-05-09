@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.*;
 import java.time.Duration;
 import java.util.List;
 
@@ -28,7 +29,20 @@ public class Video extends AppiumDriverManager {
     // Onboarding
     private By StartButton = By.xpath("//android.widget.TextView[@text='Bắt đầu']");
     private By CancelPopup = By.xpath("//android.widget.TextView[@text='Bỏ qua']");
-    private By AccMenu = By.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[16]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[5]");
+
+    // Header
+    private By SearchButton = By.xpath("//android.widget.FrameLayout[@resource-id='android:id/content']/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[16]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[4]");
+    private By SearchInput = By.xpath("//android.widget.EditText[@text='Tìm kiếm']");
+
+    // Menu
+    private By HomeMenu = By.xpath("//android.widget.FrameLayout[@resource-id='android:id/content']/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[16]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]");
+    private By AccMenu = By.xpath("//android.widget.FrameLayout[@resource-id='android:id/content']/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[16]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[5]");
+
+    // Search screen
+    private By FirstVideo_Short = By.xpath("//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.HorizontalScrollView[2]/android.view.ViewGroup/android.view.ViewGroup[1]");
+
+
+    // Account screen
     private By LoginButton = By.xpath("//android.widget.TextView[@text='Đăng nhập']");
 
     // Login Screen
@@ -41,12 +55,13 @@ public class Video extends AppiumDriverManager {
         String owb = null;
 //        try {
             driver = getDriver();
-            wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            Video.getInstance().ImplicitlyWait_Config();
+            wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-            wait.until(ExpectedConditions.visibilityOfElementLocated(StartButton));
+//            wait.until(ExpectedConditions.visibilityOfElementLocated(StartButton));
             common.clickElement(StartButton);
 
-            wait.until(ExpectedConditions.visibilityOfElementLocated(CancelPopup));
+//            wait.until(ExpectedConditions.visibilityOfElementLocated(CancelPopup));
             common.clickElement(CancelPopup);
 
 //            wait.until(ExpectedConditions.visibilityOfElementLocated(AccMenu));
@@ -81,11 +96,25 @@ public class Video extends AppiumDriverManager {
 
         // Click button và login page
         common.clickElement(Button_Submit);
-        common.waitForPageLoaded();
+//        common.waitForPageLoaded();
 
 //        Assert.assertTrue(common.checkDisplay(Banner) == true, "Login không thành công");
 
         return phone;
+    }
+
+    public void view_video(){
+        Video.getInstance().ImplicitlyWait_Config();
+        common.clickElement(HomeMenu);
+
+        common.clickElement(SearchButton);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(SearchInput));
+        fill_data(SearchButton, "Hay");
+
+        common.keyPressEnter();
+
+        common.clickElement(FirstVideo_Short);
+
     }
 
     public void fill_data(By element, String text) {
@@ -112,6 +141,7 @@ public class Video extends AppiumDriverManager {
 
         open_the_app_login_screen();
         login_app(sh_1, 1);
+        view_video();
     }
 
     @And("Close app")

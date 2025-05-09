@@ -17,7 +17,36 @@ Trước khi run test
 
 - Chạy cmd lệnh `appium --use-plugins=execute-driver --base-path /wd/hub` để kết nối với appium
 
-2. Cấu hình thiết bị
+2. Kiểm tra devices
+
+Chạy lệnh `adb devices` để kiểm tra device đang kết nối trên máy tính.
+- Nếu kết quả hiển thị <mã thết bị - device>/`emulator-5554   device`, có thể bắt đầu test
+- Nếu kết quả hiển thị <mã thết bị - authorizing>/`emulator-5554   authorizing`, tức là thiết bị chưa được cấp quyền kết nối. Thử các cách sau:
+  - Khởi động lại adb:
+    - `adb kill-server`<br>
+      `adb start-server`<br>
+      `adb devices`
+  - Xóa quyền ADB cũ và kết nối lại:
+    - Trên Android, vào Settings → Developer options → Revoke USB debugging authorizations
+    - Sau đó ngắt kết nối → kết nối lại → chấp nhận lại quyền ADB khi được hỏi.
+- Nếu kết quả hiển thị <mã thết bị - offline>/`emulator-5554   offline`, ADB đã nhận ra thiết bị nhưng không thể giao tiếp được với nó. Thử các cách sau:
+  - Khởi động lại adb:
+    - `adb kill-server`<br>
+      `adb start-server`<br>
+      `adb devices`
+  - Tắt emulator hoàn toàn và khởi động lại
+  - Xóa cache ADB trong emulator:
+    - Mở trình quản lý file → xóa file sau (nếu có):
+      - `~/.android/adbkey`<br>
+        `~/.android/adbkey.pub`
+    - Khởi động lại emulator → chạy: `adb devices`
+    - Chấp nhận yêu cầu xác nhận (authorize) trên emulator nếu hiện ra.
+  - Thử tạo emulator mới: 
+    - Xóa emulator cũ đi
+    - Tạo emulator mới
+    - Khởi động lại emulator → chạy: `adb devices`
+
+3. Cấu hình thiết bị
 - Thiết bị thật: kết nối qua dây cáp USB, cấu hình cài đặt theo hướng dẫn trong folder **Pre_Run_Tool** file **BuildTest_Window.zip**.
 - Thiết bị ảo: cài đặt Android Studio và tải thêm các emulator, khi đó thiết bị sẽ có các emulator ảo có thể sử dụng để dùng với appium.
 
